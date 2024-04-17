@@ -37,12 +37,14 @@ jobs:
         run: |
           mkdir -p .debpkg/DEBIAN
           mv {rules,prerm,preinst,postrm,postinst,control,copyright,changelog} .debpkg/DEBIAN/
-          find . -mindepth 1 -maxdepth 1 ! -name push.sh ! -name '.*' -exec mv {} .debpkg/ \;
+          mv menu.xml setup/menu.xml
+          mv setup/ .debpkg/
+          mv modules/ .debpkg/
       - uses: jiro4989/build-deb-action@v3
         with:
           package: ${{ env.PACKAGE_NAME }}
           package_root: .debpkg
-          maintainer: Hamza Gad
+          maintainer: Issabel Foundation
           version: ${{ github.ref }}
           arch: 'all'
           depends: 'libc6 (>= 2.2.1), git'
