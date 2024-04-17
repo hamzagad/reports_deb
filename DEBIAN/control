@@ -1,10 +1,10 @@
 Source: issabel-reports
 Priority: optional
-Maintainer: Hamza Gad <info@primasoft-eg.com>
+Maintainer: Issabel Foundation <https://github.com/IssabelFoundation>
 Rules-Requires-Root: no
 Version: 1.0
 Homepage: https://github.com/hamzagad/reports_deb
 Package: issabel-reports
 Architecture: all
-Depends: fonts-open-sans, fonts-liberation
+Depends: fonts-open-sans, fonts-liberation, php-jpgraph, issabel-framework >= 5.0.0-1
 Description: Issabel Reports Module

@@ -1,16 +1,17 @@
 #!/bin/bash
 
+. "$(dirname "$0")/config.sh"
+
 if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
   echo "Delete Reports menus"
-  # issabel-menuremove "reports"
+  issabel-menuremove "reports"
 
   echo "Dump and delete issabel-reports databases"
-  # issabel-dbprocess "delete" "$pathModule/setup/db"
+  issabel-dbprocess "delete" "$pathModule/setup/db"
 fi
 
-rm -rf /usr/share/issabel/module_installer/issabel-reports-5.0.0-1
+rm -rf /usr/share/issabel/module_installer/${folderName}
 rm -rf /var/www/html/modules
-rm -rf /usr/share/php/jpgraph
 
 echo 'Issabel Reports Removed Sucessfully'
 
