@@ -35,6 +35,7 @@ jobs:
       - name: Build Debian package with build-deb-action
         id: build_deb
         run: |
+          rm -rf issabel-reports.spec
           mkdir -p .debpkg/DEBIAN
           mv {rules,prerm,preinst,postrm,postinst,control,copyright,changelog} .debpkg/DEBIAN/
           mv menu.xml setup/menu.xml
