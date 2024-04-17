@@ -38,8 +38,6 @@ jobs:
           rm -rf issabel-reports.spec
           mkdir -p .debpkg
           mv DEBIAN/ .debpkg/
-          export version=$(grep 'version=' .debpkg/DEBIAN/config.sh | awk -F'"' '{print $2}')
-          sed -i "s/X\.X\.X/${version}/g" .debpkg/DEBIAN/control
           mv menu.xml setup/menu.xml
           mv setup/ .debpkg/
           mv modules/ .debpkg/
@@ -47,10 +45,10 @@ jobs:
         with:
           package: ${{ env.PACKAGE_NAME }}
           package_root: .debpkg
-          maintainer: Issabel Foundation
+          maintainer: Issabel Foundation <https://github.com/IssabelFoundation>
           version: ${{ github.ref }}
           arch: 'all'
-          depends: 'libc6 (>= 2.2.1), git'
+          depends: 'fonts-open-sans, fonts-liberation, php-jpgraph, issabel-framework (>= 5.0.0-1)'
           desc: 'Issabel Reporting Modules for CDR, Billing, etc'
 
       - name: Upload Debian package as artifact
