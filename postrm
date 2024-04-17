@@ -10,6 +10,7 @@ fi
 
 rm -rf /usr/share/issabel/module_installer/issabel-reports-5.0.0-1
 rm -rf /var/www/html/modules
+rm -rf /usr/share/php/jpgraph
 
 echo 'Issabel Reports Removed Sucessfully'
 
