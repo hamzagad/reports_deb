@@ -52,6 +52,7 @@ jobs:
 
       - name: Upload Debian package as artifact
         run: |
+          ls -hl
           filename=$(ls -l | grep ${{ env.PACKAGE_NAME }} | awk '{print $NF}')
           echo "artifact_filename=$filename" >> $GITHUB_ENV
       - uses: actions/upload-artifact@v4
