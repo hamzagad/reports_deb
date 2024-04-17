@@ -36,8 +36,8 @@ jobs:
         id: build_deb
         run: |
           rm -rf issabel-reports.spec
-          mkdir -p .debpkg/DEBIAN
-          mv {rules,prerm,preinst,postrm,postinst,control,copyright,changelog} .debpkg/DEBIAN/
+          mkdir -p .debpkg
+          mv DEBIAN/ .debpkg/
           mv menu.xml setup/menu.xml
           mv setup/ .debpkg/
           mv modules/ .debpkg/
