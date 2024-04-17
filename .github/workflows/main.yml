@@ -24,18 +24,18 @@ jobs:
       with:
         spec_file: "issabel-reports.spec"
 
-    - name: copy file via ssh key
-      uses: asternic/scp-action@master
-      with:
-        host: ${{ secrets.REPOHOST }}
-        username: ${{ secrets.REPOUSER }}
-        port: ${{ secrets.REPOPORT }}
-        key: ${{ secrets.BUILDKEY }}
-        source: ${{ steps.rpm.outputs.rpm_dir_path }}
-        target: "rpm"
+    # - name: copy file via ssh key
+    #   uses: asternic/scp-action@master
+    #   with:
+    #     host: ${{ secrets.REPOHOST }}
+    #     username: ${{ secrets.REPOUSER }}
+    #     port: ${{ secrets.REPOPORT }}
+    #     key: ${{ secrets.BUILDKEY }}
+    #     source: ${{ steps.rpm.outputs.rpm_dir_path }}
+    #     target: "rpm"
 
-#    - name: Upload artifact
-#      uses: actions/upload-artifact@v1.0.0
-#      with:
-#        name: Binary RPM
-#        path: ${{ steps.rpm.outputs.rpm_dir_path }}
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: Binary RPM
+        path: ${{ steps.rpm.outputs.rpm_dir_path }}

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+chmod -R 755 /modules/
+chmod -R 755 /setup/
+chown -R root:root /modules/
+chown -R root:root /setup/
+
+pathModule="/usr/share/issabel/module_installer/issabel-reports-5.0.0-1"
+mv /modules/ /var/www/html/
+mv /setup/paloSantoCDR.class.php      /var/www/html/libs/
+mv /setup/paloSantoTrunk.class.php    /var/www/html/libs/
+mv /setup/paloSantoRate.class.php     /var/www/html/libs/
+mv /setup/paloSantoQueue.class.php    /var/www/html/libs/
+mv /setup/menu.xml                    /usr/share/issabel/module_installer/issabel-reports-5.0.0-1/
+mv /setup/                            /usr/share/issabel/module_installer/issabel-reports-5.0.0-1/
+
+# issabel-menumerge /usr/share/issabel/module_installer/issabel-reports-5.0.0-1/menu.xml
+# issabel-dbprocess "install" "$pathModule/setup/db"
+
+mkdir -p /tmp/new_module/reports
+cp -r /usr/share/issabel/module_installer/issabel-reports-5.0.0-1/* /tmp/new_module/reports/
+# chown -R asterisk.asterisk /tmp/new_module/reports
+php /tmp/new_module/reports/setup/installer.php
+
+echo 'Issabel Reports Installed successfully, Cleaning up some storage'
+
+# cleanup
+rm -rf /tmp/new_module

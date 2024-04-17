@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
+  echo "Delete Reports menus"
+  # issabel-menuremove "reports"
+
+  echo "Dump and delete issabel-reports databases"
+  # issabel-dbprocess "delete" "$pathModule/setup/db"
+fi
+
+rm -rf /usr/share/issabel/module_installer/issabel-reports-5.0.0-1
+rm -rf /var/www/html/modules
+
+echo 'Issabel Reports Removed Sucessfully'
+
+exit 0
+

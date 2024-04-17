@@ -1,0 +1,10 @@
+Source: issabel-reports
+Priority: optional
+Maintainer: Hamza Gad <info@primasoft-eg.com>
+Rules-Requires-Root: no
+Version: 1.0
+Homepage: https://github.com/hamzagad/reports_deb
+Package: issabel-reports
+Architecture: all
+Depends: fonts-open-sans, fonts-liberation
+Description: Issabel Reports Module

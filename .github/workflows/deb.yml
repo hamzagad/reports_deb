@@ -1,0 +1,59 @@
+name: deb-package-build
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*' 
+
+permissions:
+  contents: write
+
+jobs: 
+  build:
+    env:
+      PACKAGE_NAME: issabel-reports
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set tag name
+        id: set_tag
+        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
+      - name: Create Release
+        id: create_release
+        uses: comnoco/create-release-action@v2.0.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          release_name: Release ${{ env.TAG_NAME }}
+
+      - name: Build Debian package with build-deb-action
+        id: build_deb
+        run: |
+          mkdir -p .debpkg/DEBIAN
+          mv {rules,prerm,preinst,postrm,postinst,control,copyright,changelog} .debpkg/DEBIAN/
+          find . -mindepth 1 -maxdepth 1 ! -name push.sh ! -name '.*' -exec mv {} .debpkg/ \;
+      - uses: jiro4989/build-deb-action@v3
+        with:
+          package: ${{ env.PACKAGE_NAME }}
+          package_root: .debpkg
+          maintainer: Hamza Gad
+          version: ${{ github.ref }}
+          arch: 'all'
+          depends: 'libc6 (>= 2.2.1), git'
+          desc: 'Issabel Reporting Modules for CDR, Billing, etc'
+
+      - name: Upload Debian package as artifact
+        run: |
+          filename=$(ls -l | grep ${{ env.PACKAGE_NAME }} | awk '{print $NF}')
+          echo "artifact_filename=$filename" >> $GITHUB_ENV
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.artifact_filename }}
+          path: ${{ env.artifact_filename }}
+          retention-days: 90

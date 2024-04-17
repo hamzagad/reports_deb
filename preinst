@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo 'Installing Issabel Reports'
+mkdir -p /var/www/html/libs/
+mkdir -p /usr/share/issabel/module_installer/issabel-reports-5.0.0-1/
+
+pathSQLiteDB="/var/www/db"
+mkdir -p $pathSQLiteDB
