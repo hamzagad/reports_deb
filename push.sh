@@ -18,7 +18,7 @@ git add .
 git commit -m "$commit"
 
 # Push changes to remote master branch
-git push origin main
+git push origin master
 
 # Tag the commit with the new version
 git tag "v$new_version"
