@@ -2,7 +2,7 @@ Source: issabel-reports
 Priority: optional
 Maintainer: Issabel Foundation <https://github.com/IssabelFoundation>
 Rules-Requires-Root: no
-Version: 1.0
+Version: X.X.X
 Homepage: https://github.com/hamzagad/reports_deb
 Package: issabel-reports
 Architecture: all

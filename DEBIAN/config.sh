@@ -1,3 +1,8 @@
 #!/bin/bash
 
-export folderName="issabel-reports-5.0.0-1"
+export packageFriendlyName="Issabel Reports"
+export packageName="issabel-reports"
+export version="5.0.0"
+export release="1"
+export fullVersionName="$version-$release"
+export folderName="$packageName-$fullVersionName"

@@ -19,12 +19,12 @@ mv /setup/                            /usr/share/issabel/module_installer/${fold
 issabel-menumerge /usr/share/issabel/module_installer/${folderName}/menu.xml
 issabel-dbprocess "install" "$pathModule/setup/db"
 
-mkdir -p /tmp/new_module/reports
-cp -r /usr/share/issabel/module_installer/${folderName}/* /tmp/new_module/reports/
-chown -R asterisk.asterisk /tmp/new_module/reports
-php /tmp/new_module/reports/setup/installer.php
+mkdir -p /tmp/new_module/${packageName}
+cp -r /usr/share/issabel/module_installer/${folderName}/* /tmp/new_module/${packageName}/
+chown -R asterisk.asterisk /tmp/new_module/${packageName}
+php /tmp/new_module/${packageName}/setup/installer.php
 
-echo 'Issabel Reports Installed successfully, Cleaning up...'
+echo $packageFriendlyName 'Installed successfully, Cleaning up...'
 
 # cleanup
-rm -rf /tmp/new_module
+rm -rf /tmp/new_module/${packageName}

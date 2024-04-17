@@ -2,7 +2,7 @@
 
 . "$(dirname "$0")/config.sh"
 
-echo 'Installing Issabel Reports'
+echo $packageFriendlyName 'Installing ...'
 mkdir -p /var/www/html/libs/
 mkdir -p /usr/share/issabel/module_installer/${folderName}/
 

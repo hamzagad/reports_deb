@@ -38,6 +38,8 @@ jobs:
           rm -rf issabel-reports.spec
           mkdir -p .debpkg
           mv DEBIAN/ .debpkg/
+          export version=$(grep 'version=' .debpkg/DEBIAN/config.sh | awk -F'"' '{print $2}')
+          sed -i "s/X\.X\.X/${version}/g" .debpkg/DEBIAN/control
           mv menu.xml setup/menu.xml
           mv setup/ .debpkg/
           mv modules/ .debpkg/
