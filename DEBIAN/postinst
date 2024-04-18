@@ -2,6 +2,12 @@
 
 . /usr/share/issabel-reports/config.sh
 
+mkdir -p /usr/share/issabel/module_installer/${folderName}/
+mkdir -p /var/www/html/libs/
+
+pathSQLiteDB="/var/www/db"
+mkdir -p $pathSQLiteDB
+
 chmod -R 755 /modules/
 chmod -R 755 /setup/
 chown -R root:root /modules/

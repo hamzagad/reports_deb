@@ -1,10 +1,3 @@
 #!/bin/bash
 
-. /usr/share/issabel-reports/config.sh
-
-echo $packageFriendlyName 'Installing ...'
-mkdir -p /var/www/html/libs/
-mkdir -p /usr/share/issabel/module_installer/${folderName}/
-
-pathSQLiteDB="/var/www/db"
-mkdir -p $pathSQLiteDB
+echo 'Installing ...'
