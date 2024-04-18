@@ -1,19 +1,5 @@
 #!/bin/bash
 
-. /usr/share/issabel-reports/config.sh
-
-if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
-  echo "Delete Reports menus"
-  issabel-menuremove "reports"
-
-  echo "Dump and delete $packageName databases"
-  issabel-dbprocess "delete" "$pathModule/setup/db"
-fi
-
-rm -rf /usr/share/issabel/module_installer/${folderName}
-rm -rf /var/www/html/modules
-
-echo $packageFriendlyName 'Removed Sucessfully'
+echo 'Removed Sucessfully'
 
 exit 0
-
