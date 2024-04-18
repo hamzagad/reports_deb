@@ -2,7 +2,7 @@
 
 export packageFriendlyName="Issabel Reports"
 export packageName="issabel-reports"
-export version="5.0.0"
-export release="1"
+export version="VERSION_NUMBER"
+export release="RELEASE_NUMBER"
 export fullVersionName="$version-$release"
 export folderName="$packageName-$fullVersionName"

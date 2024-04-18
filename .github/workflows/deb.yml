@@ -35,6 +35,10 @@ jobs:
       - name: Build Debian package with build-deb-action
         id: build_deb
         run: |
+          export spec_version=$(grep 'Version:' issabel-reports.spec | awk '{print $2}')
+          export spec_release=$(grep 'Release:' issabel-reports.spec | awk '{print $2}')
+          sed -i "s/VERSION_NUMBER/${spec_version}/g" DEBIAN/vars
+          sed -i "s/RELEASE_NUMBER/${spec_release}/g" DEBIAN/vars
           rm -rf issabel-reports.spec
           mkdir -p .debpkg/usr/share/${{ env.PACKAGE_NAME }}
           mv DEBIAN/vars .debpkg/usr/share/${{ env.PACKAGE_NAME }}/vars
