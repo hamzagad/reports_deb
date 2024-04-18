@@ -39,7 +39,8 @@ jobs:
           export spec_release=$(grep 'Release:' issabel-reports.spec | awk '{print $2}')
           sed -i "s/VERSION_NUMBER/${spec_version}/g" DEBIAN/vars
           sed -i "s/RELEASE_NUMBER/${spec_release}/g" DEBIAN/vars
-          echo "full_version=${spec_version}-${spec_release}" >> $GITHUB_ENV
+          # echo "full_version=${spec_version}-${spec_release}" >> $GITHUB_ENV
+          echo "full_version=refs/tags/v${spec_version}-${spec_release}" >> $GITHUB_ENV
           rm -rf issabel-reports.spec
           mkdir -p .debpkg/usr/share/${{ env.PACKAGE_NAME }}
           mv DEBIAN/vars .debpkg/usr/share/${{ env.PACKAGE_NAME }}/vars
