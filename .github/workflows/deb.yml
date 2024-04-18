@@ -48,7 +48,7 @@ jobs:
           maintainer: Issabel Foundation <https://github.com/IssabelFoundation>
           version: ${{ github.ref }}
           arch: 'all'
-          depends: 'fonts-open-sans, fonts-liberation, php-jpgraph, issabel-framework (>= 5.0.0-1)'
+          depends: 'fonts-open-sans, fonts-liberation, php-jpgraph'
           desc: 'Issabel Reporting Modules for CDR, Billing, etc'
 
       - name: Upload Debian package as artifact
