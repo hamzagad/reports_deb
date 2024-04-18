@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /usr/share/issabel-reports/config.sh
+. /usr/share/issabel-reports/vars
 
 mkdir -p /usr/share/issabel/module_installer/${folderName}/
 mkdir -p /var/www/html/libs/

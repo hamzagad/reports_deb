@@ -37,7 +37,7 @@ jobs:
         run: |
           rm -rf issabel-reports.spec
           mkdir -p .debpkg/usr/share/${{ env.PACKAGE_NAME }}
-          mv DEBIAN/config.sh .debpkg/usr/share/${{ env.PACKAGE_NAME }}/config.sh
+          mv DEBIAN/vars .debpkg/usr/share/${{ env.PACKAGE_NAME }}/vars
           mv DEBIAN/ .debpkg/
           mv menu.xml setup/menu.xml
           mv setup/ .debpkg/
@@ -49,6 +49,7 @@ jobs:
           maintainer: Issabel Foundation <https://github.com/IssabelFoundation>
           version: ${{ github.ref }}
           arch: 'all'
+          # depends: 'fonts-open-sans, fonts-liberation, php-jpgraph, issabel-framework (>= 5.0.0-1)'
           depends: 'fonts-open-sans, fonts-liberation, php-jpgraph'
           desc: 'Issabel Reporting Modules for CDR, Billing, etc'
 
