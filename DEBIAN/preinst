@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")/config.sh"
+. /usr/share/issabel-reports/config.sh
 
 echo $packageFriendlyName 'Installing ...'
 mkdir -p /var/www/html/libs/

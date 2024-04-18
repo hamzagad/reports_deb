@@ -36,7 +36,8 @@ jobs:
         id: build_deb
         run: |
           rm -rf issabel-reports.spec
-          mkdir -p .debpkg
+          mkdir -p .debpkg/usr/share/${{ env.PACKAGE_NAME }}
+          mv DEBIAN/config.sh .debpkg/usr/share/${{ env.PACKAGE_NAME }}/config.sh
           mv DEBIAN/ .debpkg/
           mv menu.xml setup/menu.xml
           mv setup/ .debpkg/

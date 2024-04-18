@@ -1,3 +1,5 @@
 #!/bin/bash
 
+. /usr/share/issabel-reports/config.sh
+
 echo $packageFriendlyName 'Removing ...'

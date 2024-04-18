@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$(dirname "$0")/config.sh"
+. /usr/share/issabel-reports/config.sh
 
 if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
   echo "Delete Reports menus"
